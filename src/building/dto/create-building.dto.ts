@@ -2,6 +2,7 @@ import {Column} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
 import {Coordinate} from "../interface/coordinate";
 import {RegionID} from "../enum/regionID";
+import {ImagesEntity} from "../../images/images.entity";
 
 export class CreateBuildingDto {
 
@@ -115,7 +116,7 @@ export class CreateBuildingDto {
         default: 'example.jpg',
     })
     @Column({type: 'array'})
-    photo: string[];
+    photo: ImagesEntity[];
 
     @ApiProperty({
         type: [String],
