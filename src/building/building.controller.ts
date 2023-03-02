@@ -5,6 +5,7 @@ import { UpdateBuildingDto } from './dto/update-building.dto';
 import {ApiHeader, ApiOperation, ApiTags} from "@nestjs/swagger";
 import {calcSkip, QueryDto} from "../utils/query.dto";
 import {FindQuery} from "../utils/decorator-controller";
+// import {ImageEntity} from "../image/image.entity";
 
 @ApiTags('Building')
 @Controller('building')

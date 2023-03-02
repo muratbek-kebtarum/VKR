@@ -2,7 +2,7 @@ import {Column} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
 import {Coordinate} from "../interface/coordinate";
 import {RegionID} from "../enum/regionID";
-import {ImagesEntity} from "../../images/images.entity";
+// import {ImageEntity} from "../../image/image.entity";
 
 export class CreateBuildingDto {
 
@@ -92,7 +92,7 @@ export class CreateBuildingDto {
         default: 'Договор',
     })
     @Column()
-    contractOrganization: string
+    contractOrganization: string;
 
     @ApiProperty({
         type: String,
@@ -110,18 +110,18 @@ export class CreateBuildingDto {
     @Column()
     financeSrc: string;
 
-    @ApiProperty({
-        type: [String],
-        description: 'ФОТО',
-        default: 'example.jpg',
-    })
-    @Column({type: 'array'})
-    photo: ImagesEntity[];
+    // @ApiProperty({
+    //     type: [String],
+    //     description: 'ФОТО',
+    //     // default: [{'example.jpg'}],
+    // })
+    // @Column({type: 'array'})
+    // photo: ImageEntity[];
 
     @ApiProperty({
         type: [String],
         description: 'Координаты строительного объекта',
-        default: [1.239, 32.343]
+        default: {latitude: 1.239, longitude: 32.343}
     })
     @Column()
     coords: Coordinate;

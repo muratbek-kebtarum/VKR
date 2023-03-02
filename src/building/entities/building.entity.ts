@@ -2,7 +2,7 @@ import {Column, Entity, Index, OneToMany, PrimaryGeneratedColumn} from "typeorm"
 
 import {Coordinate} from "../interface/coordinate";
 import {RegionID} from "../enum/regionID";
-import {ImagesEntity} from "../../images/images.entity";
+// import {ImageEntity} from "../../image/image.entity";
 
 @Entity({name:'buildings'})
 export class BuildingEntity {
@@ -41,7 +41,7 @@ export class BuildingEntity {
     buildingCost: string;
 
     @Column()
-    contractOrganization: string
+    contractOrganization: string;
 
     @Column()
     fullCost: string;
@@ -49,8 +49,8 @@ export class BuildingEntity {
     @Column()
     financeSrc: string;
 
-    @OneToMany(() => ImagesEntity, photo => photo.building)
-    photo: ImagesEntity[];
+    // @OneToMany(() => ImageEntity, (photo: ImageEntity) => photo.building)
+    // photo: ImageEntity[];
 
     @Column({type:"varchar"})
     coords: Coordinate;
