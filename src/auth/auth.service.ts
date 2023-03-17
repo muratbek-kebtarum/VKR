@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { AuthDto } from './dto/auth.dto';
 import {CreateUserDto} from "../user/dto/create-user.dto";
 import {UserService} from "../user/user.service";
-import dataSource from "../db/typeOrm.config";
+// import dataSource from "../db/typeOrm.config";
 import {User} from "../user/entities/user.entity";
 import {UpdateUserDto} from "../user/dto/update-user.dto";
 

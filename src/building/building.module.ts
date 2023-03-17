@@ -6,10 +6,12 @@ import {BuildingEntity} from "./entities/building.entity";
 // import {ImageEntity} from "../image/image.entity";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([
+  imports: [
+      TypeOrmModule.forFeature([
       BuildingEntity,
       // ImageEntity
-  ])],
+  ])
+  ],
   controllers: [BuildingController],
   providers: [BuildingService]
 })
