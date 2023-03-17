@@ -1,5 +1,6 @@
-import {applyDecorators} from "@nestjs/common";
-import {ApiQuery} from "@nestjs/swagger";
+import {applyDecorators, UseGuards} from "@nestjs/common";
+import {ApiBearerAuth, ApiQuery, ApiUnauthorizedResponse} from "@nestjs/swagger";
+import {AccessTokenGuard} from "../common/guards/accessToken.guard";
 
 export function FindQuery() {
     return applyDecorators(
@@ -14,3 +15,10 @@ export function FindQuery() {
     )
 }
 
+export function Auth() {
+    return applyDecorators(
+        ApiBearerAuth(),
+        UseGuards(AccessTokenGuard),
+        ApiUnauthorizedResponse({ description: 'Unauthorized' }),
+    )
+}

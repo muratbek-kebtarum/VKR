@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {Controller, Get, Post, Body, Patch, Param, Delete, UseGuards} from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {ApiTags} from "@nestjs/swagger";
+import {AccessTokenGuard} from "../common/guards/accessToken.guard";
+import {Auth} from "../utils/decorator-controller";
 
 @ApiTags('User')
 @Controller('user')
@@ -20,17 +22,20 @@ export class UserController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.userService.findOne(+id);
   }
 
+  @Auth()
+  // @UseGuards(AccessTokenGuard)
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
+  update(@Param('id') id: number, @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.update(id, updateUserDto);
   }
 
+  // @UseGuards(AccessTokenGuard)
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.userService.remove(+id);
   }
 }

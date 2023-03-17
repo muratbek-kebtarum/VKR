@@ -31,17 +31,17 @@ export class BuildingController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.buildingService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBuildingDto: UpdateBuildingDto) {
+  update(@Param('id') id: number, @Body() updateBuildingDto: UpdateBuildingDto) {
     return this.buildingService.update(+id, updateBuildingDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.buildingService.remove(+id);
   }
 }

@@ -9,6 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder().setTitle('ГосСтрой')
+      .addBearerAuth()
       .setDescription('Платформа ')
       .setVersion('1.0')
       .build();
@@ -17,7 +18,7 @@ async function bootstrap() {
   SwaggerModule.setup('', app, document);
   await app.listen(process.env.PORT || 3001, () =>
       Logger.log(
-          `Server has been started succesfully on http://localhost:${process.env.PORT} V1.0.3`,
+          `Server has been started succesfully on http://localhost:${process.env.PORT}`,
           "Bootstrap"
       )
   );

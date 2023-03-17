@@ -1,14 +1,12 @@
 import { Module } from '@nestjs/common';
 import { BuildingModule } from './building/building.module';
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {ConfigModule} from "@nestjs/config";
-// import {ormConfig} from "./db/Orm.config";
 import DbModule from "./db/db.module";
 import {MulterModule} from "@nestjs/platform-express";
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { join } from 'path';
 import { UserModule } from './user/user.module';
 import Joi from "@hapi/joi";
+import {AuthModule} from "./auth/auth.module";
 
 @Module({
   imports: [
@@ -20,7 +18,8 @@ import Joi from "@hapi/joi";
           rootPath: join(__dirname, '..', 'files')
       }),
       BuildingModule,
-      UserModule
+      UserModule,
+      AuthModule
   ],
   controllers: [],
   providers: [],
