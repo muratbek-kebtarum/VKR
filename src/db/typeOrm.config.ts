@@ -2,7 +2,7 @@ import {DataSource, DataSourceOptions} from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
 import {BuildingEntity} from "../building/entities/building.entity";
-import {B1111677654803713} from "../../migrations/1677654803713-B111";
+// import {B1111677654803713} from "../../migrations/1677654803713-B111";
 import {SnakeNamingStrategy} from "./strategies/snake-naming.strategy";
 import {User} from "../user/entities/user.entity";
 
